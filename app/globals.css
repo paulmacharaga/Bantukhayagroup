@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body { height: 100%; }
+body { @apply bg-neutral-950 text-neutral-100 antialiased; }
+
+/* Starfield base styles hook (container will render stars) */
+.star { position: absolute; border-radius: 9999px; }
