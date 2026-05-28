@@ -24,6 +24,7 @@ export type Company = {
   id: string
   name: string
   blurb: string
+  description?: string
   color: string
   backgroundColor?: string
   link?: string
@@ -221,6 +222,7 @@ export async function fetchCompaniesFromStrapi(baseUrl: string, token?: string):
       id: String(item.id),
       name: attrs.name,
       blurb: attrs.blurb ?? '',
+      description: attrs.description ?? undefined,
       color: attrs.color ?? '#ffffff',
       backgroundColor: attrs.backgroundColor ?? undefined,
       link: attrs.website ?? undefined,

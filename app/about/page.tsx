@@ -1,4 +1,6 @@
 import { fetchAboutPageFromStrapi } from '@/lib/strapi'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 export default async function AboutPage() {
   const baseUrl = process.env.STRAPI_URL
@@ -20,10 +22,9 @@ export default async function AboutPage() {
           {about?.title && <h1 className="text-5xl font-semibold tracking-tight text-white">{about.title}</h1>}
           {about?.subtitle && <p className="text-xl text-neutral-300 leading-relaxed">{about.subtitle}</p>}
           {about?.body && (
-            <div
-              className="prose prose-invert prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ __html: about.body }}
-            />
+            <div className="prose prose-invert prose-lg max-w-none">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{about.body}</ReactMarkdown>
+            </div>
           )}
         </div>
         {about?.heroImageUrl && (
@@ -41,10 +42,9 @@ export default async function AboutPage() {
             <div className="border-l-4 border-brand-600 pl-6">
               <h2 className="text-2xl font-semibold text-white">Our Vision</h2>
             </div>
-            <div
-              className="mt-6 prose prose-invert prose-sm max-w-none"
-              dangerouslySetInnerHTML={{ __html: about.vision }}
-            />
+            <div className="mt-6 prose prose-invert prose-sm max-w-none">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{about.vision}</ReactMarkdown>
+            </div>
           </div>
         )}
 
@@ -54,10 +54,9 @@ export default async function AboutPage() {
             <div className="border-l-4 border-emerald-600 pl-6">
               <h2 className="text-2xl font-semibold text-white">Our Mission</h2>
             </div>
-            <div
-              className="mt-6 prose prose-invert prose-sm max-w-none"
-              dangerouslySetInnerHTML={{ __html: about.mission }}
-            />
+            <div className="mt-6 prose prose-invert prose-sm max-w-none">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{about.mission}</ReactMarkdown>
+            </div>
           </div>
         )}
 
@@ -67,10 +66,9 @@ export default async function AboutPage() {
             <div className="border-l-4 border-purple-600 pl-6">
               <h2 className="text-2xl font-semibold text-white">Our Approach</h2>
             </div>
-            <div
-              className="mt-6 prose prose-invert prose-sm max-w-none"
-              dangerouslySetInnerHTML={{ __html: about.approach }}
-            />
+            <div className="mt-6 prose prose-invert prose-sm max-w-none">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{about.approach}</ReactMarkdown>
+            </div>
           </div>
         )}
       </div>

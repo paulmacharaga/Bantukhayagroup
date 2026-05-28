@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect, memo } from 'react'
 import { motion, AnimatePresence, useReducedMotion, useAnimationFrame } from 'framer-motion'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import type { Company, Service, AboutPage, SiteSettings } from '@/lib/strapi'
 
 type Props = { companies: Company[]; services: Service[]; about: AboutPage | null; siteSettings: SiteSettings | null }
@@ -433,11 +435,10 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
                   onFocus={() => { setActive(n.id); setCenterActive(false) }}
                   onClick={() => setActive((prev: string | null) => (prev === n.id ? null : n.id))}
                   tabIndex={0}
-                  className="relative flex h-14 w-14 items-center justify-center rounded-full border border-neutral-800 bg-neutral-900/70 text-xs font-medium shadow-glow backdrop-blur-sm transition-colors hover:border-neutral-700 focus:outline-none sm:h-16 sm:w-16 sm:text-sm lg:h-20 lg:w-20"
+                  className="relative flex h-14 w-14 items-center justify-center rounded-full border border-white/30 bg-neutral-900/70 text-xs font-medium shadow-glow backdrop-blur-sm transition-colors hover:border-white/50 focus:outline-none sm:h-16 sm:w-16 sm:text-sm lg:h-20 lg:w-20"
                   style={{
                     color: isActive ? '#fff' : 'rgba(255,255,255,0.95)',
                     boxShadow: isActive ? `0 0 30px ${n.color}66, inset 0 0 18px ${n.color}33` : `0 0 14px rgba(255,255,255,0.08)`,
-                    backgroundColor: n.backgroundColor ?? undefined,
                   }}
                 >
                   <motion.span
@@ -549,6 +550,11 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
                   <div className="mt-20">
                     <div className="text-xl font-semibold text-white" style={{ color: c.color }}>{c.name}</div>
                     <div className="mt-3 text-base leading-7 text-neutral-300">{c.blurb}</div>
+                    {c.description && (
+                      <div className="mt-4 text-base leading-7 text-neutral-300 prose prose-invert prose-sm max-w-none prose-p:mb-4 prose-p:leading-7 prose-ul:my-3 prose-ul:ml-4 prose-ul:list-disc prose-li:my-1 prose-li:block">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{c.description}</ReactMarkdown>
+                      </div>
+                    )}
                     {c.link && (
                       <a
                         href={c.link}
@@ -585,6 +591,11 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
                     <div className="flex-1">
                       <div className="text-base font-semibold text-white" style={{ color: c.color }}>{c.name}</div>
                       <div className="mt-1 text-neutral-300">{c.blurb}</div>
+                      {c.description && (
+                        <div className="mt-2 text-neutral-300 prose prose-invert prose-sm max-w-none prose-p:mb-3 prose-p:leading-6 prose-ul:my-2 prose-ul:ml-4 prose-ul:list-disc prose-li:my-1 prose-li:block">
+                          <ReactMarkdown remarkPlugins={[remarkGfm]}>{c.description}</ReactMarkdown>
+                        </div>
+                      )}
                       {c.link && (
                         <a
                           href={c.link}

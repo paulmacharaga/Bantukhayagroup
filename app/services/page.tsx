@@ -47,7 +47,7 @@ export default async function ServicesPage() {
           </div>
         ) : (
           <div className="grid gap-6 lg:grid-cols-2">
-            {services.slice(0, 4).map((service, idx) => (
+            {services.slice(0, 4).map((service: any, idx: number) => (
               <div
                 key={service.id}
                 className="overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/40 transition-all hover:border-neutral-700"
@@ -94,7 +94,7 @@ export default async function ServicesPage() {
           </div>
           
           <div className="grid gap-6 lg:grid-cols-2">
-            {services.slice(4).map((service, idx) => (
+            {services.slice(4).map((service: any, idx: number) => (
               <div
                 key={service.id}
                 className="overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/40 transition-all hover:border-neutral-700"

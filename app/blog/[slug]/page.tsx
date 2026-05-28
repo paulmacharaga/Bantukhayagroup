@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation'
 import { fetchBlogPostBySlugFromStrapi } from '@/lib/strapi'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const baseUrl = process.env.STRAPI_URL
@@ -28,10 +30,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       )}
 
       {post.body ? (
-        <div
-          className="space-y-4 text-sm leading-7 text-neutral-300"
-          dangerouslySetInnerHTML={{ __html: post.body }}
-        />
+        <div className="space-y-4 text-sm leading-7 text-neutral-300 prose prose-invert prose-sm max-w-none">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.body}</ReactMarkdown>
+        </div>
       ) : (
         <div className="rounded-2xl border border-neutral-800 bg-neutral-900/40 p-6 text-sm text-neutral-400">
           Add blog content in Strapi to show the full article here.

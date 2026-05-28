@@ -1,4 +1,6 @@
 import { fetchTechnologyPageFromStrapi, fetchCompaniesFromStrapi } from '@/lib/strapi'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 export default async function TechnologyPage() {
   const baseUrl = process.env.STRAPI_URL
@@ -33,10 +35,9 @@ export default async function TechnologyPage() {
 
       {/* Body Content */}
       {techPage?.body && (
-        <div
-          className="prose prose-invert prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: body }}
-        />
+        <div className="prose prose-invert prose-lg max-w-none">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{body}</ReactMarkdown>
+        </div>
       )}
 
       {/* Companies Section */}
@@ -50,19 +51,15 @@ export default async function TechnologyPage() {
           </div>
           
           <div className="grid gap-6 lg:grid-cols-2">
-            {companies.map((company) => (
+            {companies.map((company: any) => (
               <div
                 key={company.id}
-                className="overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/40 transition-all hover:border-neutral-700"
-                style={{ 
-                  backgroundColor: company.backgroundColor ? `${company.backgroundColor}20` : undefined 
-                }}
+                className="overflow-hidden rounded-2xl border border-white/20 bg-neutral-900/60 transition-all hover:border-white/40"
               >
                 <div className="p-8">
                   <div className="flex items-start gap-4">
-                    <div 
-                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-4 border-neutral-700"
-                      style={{ backgroundColor: company.backgroundColor || '#2563eb' }}
+                    <div
+                      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-white/30 bg-neutral-800"
                     >
                       {company.logoUrl ? (
                         <img src={company.logoUrl} alt={company.name} className="h-6 w-6 object-contain" />
@@ -75,6 +72,11 @@ export default async function TechnologyPage() {
                     <div className="flex-1">
                       <h3 className="text-2xl font-semibold text-white">{company.name}</h3>
                       <p className="mt-3 text-sm leading-6 text-neutral-300">{company.blurb}</p>
+                      {company.description && (
+                        <div className="mt-4 text-sm leading-6 text-neutral-300 prose prose-invert prose-sm max-w-none">
+                          <ReactMarkdown remarkPlugins={[remarkGfm]}>{company.description}</ReactMarkdown>
+                        </div>
+                      )}
                       {company.link && (
                         <a
                           href={company.link}

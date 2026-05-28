@@ -24,7 +24,7 @@ export default async function ProjectsPage() {
         </div>
       ) : (
         <div className="grid gap-8 lg:grid-cols-2">
-          {projects.map(project => (
+          {projects.map((project: any) => (
             <Link
               key={project.id}
               href={`/projects/${project.slug}`}

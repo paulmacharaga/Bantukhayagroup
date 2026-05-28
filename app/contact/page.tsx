@@ -1,5 +1,7 @@
 import { fetchContactPageFromStrapi } from '@/lib/strapi'
 import ContactForm from './ContactForm'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 export default async function ContactPage() {
   const baseUrl = process.env.STRAPI_URL
@@ -15,10 +17,9 @@ export default async function ContactPage() {
         {contact?.title && <h1 className="text-5xl font-semibold tracking-tight text-white">{contact.title}</h1>}
         {contact?.subtitle && <p className="text-xl text-neutral-300">{contact.subtitle}</p>}
         {contact?.body && (
-          <div
-            className="space-y-4 text-sm leading-7 text-neutral-300"
-            dangerouslySetInnerHTML={{ __html: contact.body }}
-          />
+          <div className="space-y-4 text-sm leading-7 text-neutral-300 prose prose-invert prose-sm max-w-none">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{contact.body}</ReactMarkdown>
+          </div>
         )}
       </div>
 
