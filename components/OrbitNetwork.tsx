@@ -580,7 +580,7 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ type: 'spring', stiffness: 280, damping: 26 }}
-              className="fixed inset-x-0 bottom-0 z-10 m-4 rounded-xl border border-neutral-800 bg-neutral-900/95 p-4 text-sm shadow-2xl backdrop-blur md:hidden"
+              className="fixed inset-x-0 bottom-0 z-50 m-4 rounded-xl border border-neutral-800 bg-neutral-900/95 p-4 text-sm shadow-2xl backdrop-blur md:hidden"
               ref={companyPanelMobileRef}
             >
               {(() => {
@@ -654,7 +654,7 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ type: 'spring', stiffness: 220, damping: 24 }}
-              className="fixed inset-x-0 bottom-0 z-40 m-4 max-h-[70vh] overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900/95 p-5 text-sm shadow-2xl backdrop-blur md:hidden"
+              className="fixed inset-x-0 bottom-0 z-30 m-4 max-h-[70vh] overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900/95 p-5 text-sm shadow-2xl backdrop-blur md:hidden"
               ref={aboutPanelMobileRef}
             >
               <div className="flex items-start justify-between gap-4">
