@@ -29,18 +29,25 @@ export default async function AboutPage() {
             The organization was built from practical implementation experience supporting infrastructure planning, geospatial intelligence, project management, environmental data collection, technology adoption, and learning initiatives.
           </p>
         </div>
-        {about?.heroImageUrl && (
-          <div className="relative max-w-5xl mx-auto">
-            <div className="absolute -inset-4 bg-gradient-to-r from-brand-600 to-purple-600 rounded-2xl blur-2xl opacity-20" />
-            <div className="relative overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/40 shadow-2xl">
-              <img
-                src={about.heroImageUrl}
-                alt="About Bantu Khaya Group"
-                className="h-full w-full object-cover"
-              />
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+          {about?.body && (
+            <div className="prose prose-invert prose-base max-w-none prose-p:text-neutral-300 prose-p:leading-7 prose-p:mb-4 prose-ul:my-4 prose-ul:ml-6 prose-ul:list-disc prose-li:my-2 prose-li:text-neutral-300 prose-li:leading-6 prose-li:pl-2 prose-strong:text-white prose-headings:text-white prose-hr:border-neutral-700 prose-h4:text-white prose-h4:font-semibold prose-h4:mt-6 prose-h4:mb-3 [&_ul]:list-disc [&_ul]:ml-6 [&_li]:my-2 [&_li]:pl-2 [&_li]:text-neutral-300">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{about.body}</ReactMarkdown>
             </div>
-          </div>
-        )}
+          )}
+          {about?.heroImageUrl && (
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-brand-600 to-purple-600 rounded-2xl blur-2xl opacity-20" />
+              <div className="relative overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/40 shadow-2xl">
+                <img
+                  src={about.heroImageUrl}
+                  alt="About Bantu Khaya Group"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Vision, Mission, Approach Cards */}
