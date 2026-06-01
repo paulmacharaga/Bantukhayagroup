@@ -30,7 +30,7 @@ export default async function AboutPage() {
             </p>
           )}
           {about?.body && (
-            <div className="prose prose-invert prose-xl max-w-none prose-p:text-neutral-300 prose-p:leading-8 prose-p:mb-6 prose-ul:my-4 prose-ul:ml-6 prose-ul:list-disc prose-li:my-2 prose-li:text-neutral-300 prose-li:leading-7 prose-strong:text-white prose-headings:text-white prose-hr:border-neutral-700">
+            <div className="prose prose-invert prose-xl max-w-none prose-p:text-neutral-300 prose-p:leading-8 prose-p:mb-6 prose-ul:my-6 prose-ul:ml-6 prose-ul:list-disc prose-li:my-3 prose-li:text-neutral-300 prose-li:leading-7 prose-li:pl-2 prose-strong:text-white prose-headings:text-white prose-hr:border-neutral-700 prose-h4:text-white prose-h4:font-semibold prose-h4:mt-8 prose-h4:mb-4 [&_ul]:list-disc [&_ul]:ml-6 [&_li]:my-3 [&_li]:pl-2 [&_li]:text-neutral-300">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{about.body}</ReactMarkdown>
             </div>
           )}
