@@ -293,7 +293,7 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
       {/* Starfield background covering full page */}
       <StarField reduce={reduce} />
       <div
-        className="relative mx-auto select-none"
+        className="relative mx-auto flex items-center justify-center select-none"
         style={{
           width: 'min(1180px, min(100vw, calc(100vh - 140px)))',
           height: 'min(1180px, min(100vw, calc(100vh - 140px)))',
