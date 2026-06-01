@@ -19,21 +19,15 @@ export default async function AboutPage() {
       {/* Hero Section */}
       <div className="space-y-12">
         <div className="space-y-8 max-w-4xl">
-          {about?.title && (
-            <h1 className="text-6xl font-bold tracking-tight text-white leading-tight">
-              {about.title}
-            </h1>
-          )}
-          {about?.subtitle && (
-            <p className="text-2xl text-neutral-300 leading-relaxed">
-              {about.subtitle}
-            </p>
-          )}
-          {about?.body && (
-            <div className="prose prose-invert prose-xl max-w-none prose-p:text-neutral-300 prose-p:leading-8 prose-p:mb-6 prose-ul:my-6 prose-ul:ml-6 prose-ul:list-disc prose-li:my-3 prose-li:text-neutral-300 prose-li:leading-7 prose-li:pl-2 prose-strong:text-white prose-headings:text-white prose-hr:border-neutral-700 prose-h4:text-white prose-h4:font-semibold prose-h4:mt-8 prose-h4:mb-4 [&_ul]:list-disc [&_ul]:ml-6 [&_li]:my-3 [&_li]:pl-2 [&_li]:text-neutral-300">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{about.body}</ReactMarkdown>
-            </div>
-          )}
+          <h1 className="text-6xl font-bold tracking-tight text-white leading-tight">
+            Bantu Khaya Group
+          </h1>
+          <p className="text-2xl text-neutral-300 leading-relaxed">
+            Bantu Khaya Group (BKG) is a consulting, technology, learning, and innovation ecosystem focused on helping communities and organizations transform disconnected systems into integrated intelligence.
+          </p>
+          <p className="text-xl text-neutral-400 leading-relaxed">
+            The organization was built from practical implementation experience supporting infrastructure planning, geospatial intelligence, project management, environmental data collection, technology adoption, and learning initiatives.
+          </p>
         </div>
         {about?.heroImageUrl && (
           <div className="relative max-w-5xl mx-auto">
@@ -41,7 +35,7 @@ export default async function AboutPage() {
             <div className="relative overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/40 shadow-2xl">
               <img
                 src={about.heroImageUrl}
-                alt={about?.title ?? 'About'}
+                alt="About Bantu Khaya Group"
                 className="h-full w-full object-cover"
               />
             </div>
