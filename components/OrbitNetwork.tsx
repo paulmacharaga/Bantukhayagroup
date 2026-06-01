@@ -289,7 +289,7 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
   const displayServices = services.slice(0, serviceLayout.length)
 
   return (
-    <div className="relative mx-auto h-full w-full px-4 py-0">
+    <div className="relative mx-auto flex h-full w-full items-center justify-center px-4 py-0">
       {/* Starfield background covering full page */}
       <StarField reduce={reduce} />
       <div
