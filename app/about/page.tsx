@@ -30,7 +30,7 @@ export default async function AboutPage() {
             </p>
           )}
           {about?.body && (
-            <div className="prose prose-invert prose-xl max-w-none prose-p:text-neutral-300 prose-p:leading-8 prose-p:mb-6 prose-ul:my-4 prose-ul:ml-6 prose-ul:list-disc prose-li:my-2 prose-li:text-neutral-300 prose-strong:text-white prose-headings:text-white">
+            <div className="prose prose-invert prose-xl max-w-none prose-p:text-neutral-300 prose-p:leading-8 prose-p:mb-6 prose-ul:my-4 prose-ul:ml-6 prose-ul:list-disc prose-li:my-2 prose-li:text-neutral-300 prose-li:leading-7 prose-strong:text-white prose-headings:text-white prose-hr:border-neutral-700">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{about.body}</ReactMarkdown>
             </div>
           )}
@@ -63,7 +63,7 @@ export default async function AboutPage() {
                 </svg>
               </div>
               <h2 className="text-2xl font-bold text-white mb-4">Our Vision</h2>
-              <div className="prose prose-invert prose-sm max-w-none prose-p:text-neutral-300 prose-p:leading-7 prose-p:mb-4 prose-ul:my-3 prose-ul:ml-4 prose-ul:list-disc prose-li:my-2 prose-li:text-neutral-300">
+              <div className="prose prose-invert prose-sm max-w-none prose-p:text-neutral-300 prose-p:leading-7 prose-p:mb-4 prose-ul:my-3 prose-ul:ml-4 prose-ul:list-disc prose-li:my-2 prose-li:text-neutral-300 prose-li:leading-6 prose-strong:text-white prose-headings:text-white">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{about.vision}</ReactMarkdown>
               </div>
             </div>
@@ -81,7 +81,7 @@ export default async function AboutPage() {
                 </svg>
               </div>
               <h2 className="text-2xl font-bold text-white mb-4">Our Mission</h2>
-              <div className="prose prose-invert prose-sm max-w-none prose-p:text-neutral-300 prose-p:leading-7 prose-p:mb-4 prose-ul:my-3 prose-ul:ml-4 prose-ul:list-disc prose-li:my-2 prose-li:text-neutral-300">
+              <div className="prose prose-invert prose-sm max-w-none prose-p:text-neutral-300 prose-p:leading-7 prose-p:mb-4 prose-ul:my-3 prose-ul:ml-4 prose-ul:list-disc prose-li:my-2 prose-li:text-neutral-300 prose-li:leading-6 prose-strong:text-white prose-headings:text-white">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{about.mission}</ReactMarkdown>
               </div>
             </div>
@@ -99,7 +99,7 @@ export default async function AboutPage() {
                 </svg>
               </div>
               <h2 className="text-2xl font-bold text-white mb-4">Our Approach</h2>
-              <div className="prose prose-invert prose-sm max-w-none prose-p:text-neutral-300 prose-p:leading-7 prose-p:mb-4 prose-ul:my-3 prose-ul:ml-4 prose-ul:list-disc prose-li:my-2 prose-li:text-neutral-300">
+              <div className="prose prose-invert prose-sm max-w-none prose-p:text-neutral-300 prose-p:leading-7 prose-p:mb-4 prose-ul:my-3 prose-ul:ml-4 prose-ul:list-disc prose-li:my-2 prose-li:text-neutral-300 prose-li:leading-6 prose-strong:text-white prose-headings:text-white">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{about.approach}</ReactMarkdown>
               </div>
             </div>
