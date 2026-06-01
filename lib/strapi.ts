@@ -363,7 +363,7 @@ export async function fetchAboutPageFromStrapi(baseUrl: string, token?: string):
       title: attrs.title,
       subtitle: attrs.subtitle,
       body: attrs.body,
-      heroImageUrl: attrs.heroImage?.data?.attributes?.url ? withBaseUrl(normalizedBaseUrl, attrs.heroImage.data.attributes.url) : undefined,
+      heroImageUrl: attrs.heroImage?.url ? withBaseUrl(normalizedBaseUrl, attrs.heroImage.url) : undefined,
       vision: attrs.vision,
       mission: attrs.mission,
       approach: attrs.approach,
