@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "client": {
+      "type": "string"
+    },
+    "industry": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "services": {
+      "type": "json"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false
+    },
+    "outcome": {
+      "type": "richtext"
+    },
+    "challenges": {
+      "type": "richtext"
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "publishedAt": {
+      "type": "datetime"
+    }
+  }
+}

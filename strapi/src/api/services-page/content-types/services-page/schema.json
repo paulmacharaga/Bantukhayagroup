@@ -1,0 +1,61 @@
+{
+  "kind": "singleType",
+  "collectionName": "services_pages",
+  "info": {
+    "singularName": "services-page",
+    "pluralName": "services-pages",
+    "displayName": "Services Page",
+    "description": "Services page content including hero, sections, and CTA"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "required": true,
+      "default": "Our Services"
+    },
+    "heroDescription": {
+      "type": "text",
+      "required": true
+    },
+    "consultingSectionTitle": {
+      "type": "string",
+      "required": true,
+      "default": "Consulting Services"
+    },
+    "consultingSectionDescription": {
+      "type": "text",
+      "required": true
+    },
+    "technologySectionTitle": {
+      "type": "string",
+      "required": true,
+      "default": "Technology Ecosystem"
+    },
+    "technologySectionDescription": {
+      "type": "text",
+      "required": true
+    },
+    "ctaTitle": {
+      "type": "string",
+      "required": true,
+      "default": "Ready to Transform Your Business?"
+    },
+    "ctaDescription": {
+      "type": "text",
+      "required": true
+    },
+    "ctaButtonText": {
+      "type": "string",
+      "required": true,
+      "default": "Get in Touch"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false
+    }
+  }
+}

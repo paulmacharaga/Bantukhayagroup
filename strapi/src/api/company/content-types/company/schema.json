@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "companies",
+  "info": {
+    "singularName": "company",
+    "pluralName": "companies",
+    "displayName": "Company",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "blurb": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "website": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "industry": {
+      "type": "string"
+    },
+    "yearFounded": {
+      "type": "integer"
+    },
+    "initial": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false
+    },
+    "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false
+    },
+    "socialLinkedIn": {
+      "type": "string"
+    },
+    "socialTwitter": {
+      "type": "string"
+    },
+    "socialInstagram": {
+      "type": "string"
+    }
+  }
+}
