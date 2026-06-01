@@ -17,15 +17,15 @@ export default async function AboutPage() {
   return (
     <section className="mx-auto flex w-full max-w-7xl flex-col gap-20 py-16">
       {/* Hero Section */}
-      <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-        <div className="space-y-8">
+      <div className="space-y-12">
+        <div className="space-y-8 max-w-4xl">
           {about?.title && (
             <h1 className="text-6xl font-bold tracking-tight text-white leading-tight">
               {about.title}
             </h1>
           )}
           {about?.subtitle && (
-            <p className="text-2xl text-neutral-300 leading-relaxed max-w-xl">
+            <p className="text-2xl text-neutral-300 leading-relaxed">
               {about.subtitle}
             </p>
           )}
@@ -36,7 +36,7 @@ export default async function AboutPage() {
           )}
         </div>
         {about?.heroImageUrl && (
-          <div className="relative">
+          <div className="relative max-w-5xl mx-auto">
             <div className="absolute -inset-4 bg-gradient-to-r from-brand-600 to-purple-600 rounded-2xl blur-2xl opacity-20" />
             <div className="relative overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/40 shadow-2xl">
               <img
