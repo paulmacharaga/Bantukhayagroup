@@ -46,7 +46,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en">
       <head>
         {siteSettings?.mainLogoUrl && (
-          <link rel="icon" href={siteSettings.mainLogoUrl} />
+          <link
+            rel="icon"
+            href={`data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000000'/><image href='${encodeURIComponent(siteSettings.mainLogoUrl)}' x='4' y='4' width='24' height='24' preserveAspectRatio='xMidYMid meet'/></svg>`}
+          />
         )}
       </head>
       <body className="min-h-screen overflow-x-hidden bg-neutral-950 text-neutral-100">
