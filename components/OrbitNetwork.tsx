@@ -318,7 +318,7 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
                 <img
                   src={siteSettings.mainLogoUrl}
                   alt="Bantu Khaya"
-                  className="h-[clamp(6rem,16vmin,10rem)] w-[clamp(6rem,16vmin,10rem)] object-contain"
+                  className="h-[clamp(8rem,20vmin,12rem)] w-[clamp(8rem,20vmin,12rem)] object-contain"
                 />
               ) : (
                 <>
