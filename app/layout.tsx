@@ -44,6 +44,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en">
+      <head>
+        {siteSettings?.mainLogoUrl && (
+          <link rel="icon" href={siteSettings.mainLogoUrl} />
+        )}
+      </head>
       <body className="min-h-screen overflow-x-hidden bg-neutral-950 text-neutral-100">
         <StarField reduce={false} />
         <PageChrome footerText={siteSettings?.footerCopyright} navItems={navigationItems} logoUrl={siteSettings?.mainLogoUrl}>
