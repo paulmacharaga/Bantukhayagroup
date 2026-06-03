@@ -302,7 +302,7 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
         <div className="absolute z-20" style={{ left: `${centerX}%`, top: `${centerY}%`, transform: 'translate(-50%, -50%)' }}>
           <motion.div
             className="relative flex items-center justify-center rounded-full border border-neutral-800 bg-gradient-to-br from-neutral-800 via-neutral-900 to-black shadow-glow"
-            style={{ width: 'clamp(9.375rem, 24vmin, 20rem)', height: 'clamp(9.375rem, 24vmin, 20rem)' }}
+            style={{ width: 'clamp(12rem, 32vmin, 24rem)', height: 'clamp(12rem, 32vmin, 24rem)' }}
             animate={reduce ? undefined : { scale: [1, 1.02, 1] }}
             transition={reduce ? undefined : { duration: 6, repeat: Infinity }}
             onMouseEnter={() => setCenterActive(true)}
@@ -318,7 +318,7 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
                 <img
                   src={siteSettings.mainLogoUrl}
                   alt="Bantu Khaya"
-                  className="h-[clamp(4.5rem,12vmin,8rem)] w-[clamp(4.5rem,12vmin,8rem)] object-contain"
+                  className="h-[clamp(6rem,16vmin,10rem)] w-[clamp(6rem,16vmin,10rem)] object-contain"
                 />
               ) : (
                 <>
@@ -355,7 +355,7 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
                 fill="none"
                 stroke={isRel ? n.color : 'rgba(255,255,255,0.3)'}
                 strokeOpacity={isRel ? 1 : 0.6}
-                strokeWidth={0.5}
+                strokeWidth={isRel ? 1.2 : 0.5}
                 vectorEffect="non-scaling-stroke"
                 initial={false}
                 animate={reduce ? {} : { strokeDashoffset: [0, 0] }}
@@ -383,8 +383,8 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
                 d={d}
                 fill="none"
                 stroke={isRel ? n.color : 'rgba(255,255,255,0.25)'}
-                strokeOpacity={isRel ? 0.9 : 0.5}
-                strokeWidth={0.4}
+                strokeOpacity={isRel ? 1 : 0.5}
+                strokeWidth={isRel ? 1 : 0.4}
                 vectorEffect="non-scaling-stroke"
                 initial={false}
                 animate={reduce ? {} : { strokeDashoffset: [0, 0] }}
@@ -412,12 +412,42 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
                 d={d}
                 fill="none"
                 stroke={isRel ? n.color : 'rgba(255,255,255,0.2)'}
-                strokeOpacity={isRel ? 0.8 : 0.4}
-                strokeWidth={0.35}
+                strokeOpacity={isRel ? 1 : 0.4}
+                strokeWidth={isRel ? 0.8 : 0.35}
                 vectorEffect="non-scaling-stroke"
                 initial={false}
                 animate={reduce ? {} : { strokeDashoffset: [0, 0] }}
                 transition={{ duration: 12 + ((i + 2) % 4), repeat: Infinity, ease: 'linear' }}
+                strokeDasharray="none"
+              />
+            )
+          })}
+
+          {/* Additional cross-link connections for denser web */}
+          {nodes.map((n, i) => {
+            const m = nodes[(i + 2) % N]
+            const isRel = active ? active === n.id || active === m.id : false
+            const midX = (n.x + m.x) / 2
+            const midY = (n.y + m.y) / 2
+            const a1 = Math.atan2(m.y - n.y, m.x - n.x)
+            const off = 2.5
+            const kx1 = midX + Math.cos(a1 + Math.PI / 4) * off + Math.sin(t + i) * 0.8
+            const ky1 = midY + Math.sin(a1 + Math.PI / 4) * off + Math.cos(t + i) * 0.8
+            const kx2 = midX + Math.cos(a1 - Math.PI / 4) * off + Math.cos(t + i) * 0.8
+            const ky2 = midY + Math.sin(a1 - Math.PI / 4) * off + Math.sin(t + i) * 0.8
+            const d = `M ${n.x} ${n.y} L ${kx1} ${ky1} L ${kx2} ${ky2} L ${m.x} ${m.y}`
+            return (
+              <motion.path
+                key={`x2-${n.id}`}
+                d={d}
+                fill="none"
+                stroke={isRel ? n.color : 'rgba(255,255,255,0.15)'}
+                strokeOpacity={isRel ? 1 : 0.35}
+                strokeWidth={isRel ? 0.6 : 0.3}
+                vectorEffect="non-scaling-stroke"
+                initial={false}
+                animate={reduce ? {} : { strokeDashoffset: [0, 0] }}
+                transition={{ duration: 14 + ((i + 3) % 5), repeat: Infinity, ease: 'linear' }}
                 strokeDasharray="none"
               />
             )
