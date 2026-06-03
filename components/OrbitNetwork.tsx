@@ -581,7 +581,7 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
                     <div className="text-xl font-semibold text-white" style={{ color: c.color }}>{c.name}</div>
                     <div className="mt-3 text-base leading-7 text-neutral-300">{c.blurb}</div>
                     {c.description && (
-                      <div className="mt-4 text-base leading-7 text-neutral-300 prose prose-invert prose-sm max-w-none prose-p:mb-4 prose-p:leading-7 prose-ul:my-3 prose-ul:ml-4 prose-ul:list-disc prose-li:my-1 prose-li:block">
+                      <div className="mt-4 text-base leading-7 text-neutral-300 prose prose-invert prose-sm max-w-none prose-p:mb-4 prose-p:leading-7 prose-ul:my-3 prose-ul:ml-4 prose-ul:list-disc prose-li:my-1 prose-li:block [&_ul]:list-disc [&_ul]:ml-4 [&_li]:my-1 [&_li]:pl-1 [&_li]:text-neutral-300 [&_li::marker]:text-brand-400 [&_li::marker]:text-lg">
                         <ReactMarkdown remarkPlugins={[remarkGfm]}>{c.description}</ReactMarkdown>
                       </div>
                     )}
@@ -622,7 +622,7 @@ export default function OrbitNetwork({ companies, services, about, siteSettings 
                       <div className="text-base font-semibold text-white" style={{ color: c.color }}>{c.name}</div>
                       <div className="mt-1 text-neutral-300">{c.blurb}</div>
                       {c.description && (
-                        <div className="mt-2 text-neutral-300 prose prose-invert prose-sm max-w-none prose-p:mb-3 prose-p:leading-6 prose-ul:my-2 prose-ul:ml-4 prose-ul:list-disc prose-li:my-1 prose-li:block">
+                        <div className="mt-2 text-neutral-300 prose prose-invert prose-sm max-w-none prose-p:mb-3 prose-p:leading-6 prose-ul:my-2 prose-ul:ml-4 prose-ul:list-disc prose-li:my-1 prose-li:block [&_ul]:list-disc [&_ul]:ml-4 [&_li]:my-1 [&_li]:pl-1 [&_li]:text-neutral-300 [&_li::marker]:text-brand-400 [&_li::marker]:text-lg">
                           <ReactMarkdown remarkPlugins={[remarkGfm]}>{c.description}</ReactMarkdown>
                         </div>
                       )}
