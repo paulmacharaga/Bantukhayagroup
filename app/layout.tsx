@@ -45,12 +45,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en">
       <head>
-        {siteSettings?.mainLogoUrl && (
-          <>
-            <link rel="icon" href={siteSettings.mainLogoUrl} />
-            <link rel="apple-touch-icon" href={siteSettings.mainLogoUrl} />
-          </>
-        )}
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="min-h-screen overflow-x-hidden bg-neutral-950 text-neutral-100">
         <StarField reduce={false} />
