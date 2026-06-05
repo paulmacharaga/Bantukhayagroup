@@ -45,7 +45,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="min-h-screen overflow-x-hidden bg-neutral-950 text-neutral-100">
         <StarField reduce={false} />
